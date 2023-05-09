@@ -77,3 +77,18 @@ const mutation = (arr) => {
 console.log(mutation(["hello", "hey"])); //return false
 console.log(mutation(["Alien", "Line"])); //return true
 console.log(mutation(["zyxwvutsrqponmlkjihgfedcba", "qrstu"])); //return true
+
+console.log("Chunky Monkey");
+
+const chunkArrayInGroups = (arr, size) => {
+  const newArr = [];
+
+  for (let i = 0; i <= arr.length - 1; i += size) {
+    newArr.push(arr.slice(i, i + size));
+  }
+  return newArr;
+};
+
+console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3));
+console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2));
