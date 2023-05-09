@@ -1,3 +1,4 @@
+//1.Problem
 console.log("Falsy Bouncer !!");
 
 //Remove all falsy values from an array. Return a new array; do not mutate the original array.
@@ -18,12 +19,12 @@ const bouncer = (arr) => {
   return newArr;
 };
 
-console.log(Boolean([7, "ate", "", false, 9]));
 bouncer([7, "ate", "", false, 9]);
 bouncer(["a", "b", "c"]);
 bouncer([false, null, 0, NaN, undefined, ""]);
 bouncer([null, NaN, 1, 2, undefined]);
 
+//2.Problem
 console.log("Where do I belong");
 
 //Return the lowest index at which a value (second argument) should be inserted into an array (first argument)
@@ -50,3 +51,6 @@ console.log(getIndexToIns([10, 20, 30, 40, 50], 30)); //
 console.log(getIndexToIns([5, 3, 20, 3], 5));
 console.log(getIndexToIns([3, 10, 5], 3)); //return 0
 console.log(getIndexToIns([2, 5, 10], 15)); //return 3
+
+//3. Problem
+Console.log("Mutation");
