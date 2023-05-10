@@ -146,3 +146,24 @@ console.log(
     ["diorite", "andesite", "grass", "dirt", "dead shrub"]
   )
 );
+
+//3.
+
+/***Notes */
+//Construct arguments using rest parameter
+//Remember include works arrays not individual numbers
+
+console.log("Seek And Destroy");
+
+const destroyer = (arr, ...theArgs) => {
+  return arr.filter((numbers) => !theArgs.includes(numbers));
+};
+
+console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
+console.log(destroyer([1, 2, 3, 5, 1, 2, 3], 2, 3));
+console.log(destroyer([2, 3, 2, 3], 2, 3));
+console.log(destroyer([3, 5, 1, 2, 2], 2, 3, 5));
+
+//4.
+
+console.log("Wherefore art thou");
