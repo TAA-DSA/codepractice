@@ -94,6 +94,9 @@ console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3));
 console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2));
 
 /***Intermediate Algorithm */
+
+// 1
+
 console.log("Sum All the number in range");
 
 const sumAll = (arr) => {
