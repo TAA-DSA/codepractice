@@ -112,3 +112,37 @@ const sumAll = (arr) => {
 
 console.log(sumAll([1, 4]));
 console.log(sumAll([10, 5]));
+
+//2.
+
+console.log("Diff Two Arrays");
+
+//return the symmetric difference of two arrays
+//Create a loop to compare the arrays
+//push the number in newArr that is not present in the both the arrays
+//forEach does not return a value, it executes provided function once for each element in the array
+//Consider concat, filter and includes
+
+const diffArray = (arr1, arr2) => {
+  let mergeArray = arr1.concat(arr2);
+  let newArr = mergeArray.filter(
+    (number) => !arr1.includes(number) || !arr2.includes(number)
+  );
+
+  return newArr;
+};
+
+console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
+console.log(
+  diffArray(
+    ["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"],
+    ["diorite", "andesite", "grass", "dirt", "dead shrub"]
+  )
+);
+
+console.log(
+  diffArray(
+    ["andesite", "grass", "dirt", "pink wool", "dead shrub"],
+    ["diorite", "andesite", "grass", "dirt", "dead shrub"]
+  )
+);
