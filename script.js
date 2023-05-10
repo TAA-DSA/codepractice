@@ -92,3 +92,20 @@ const chunkArrayInGroups = (arr, size) => {
 console.log(chunkArrayInGroups(["a", "b", "c", "d"], 2));
 console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 3));
 console.log(chunkArrayInGroups([0, 1, 2, 3, 4, 5], 2));
+
+/***Intermediate Algorithm */
+console.log("Sum All the number in range");
+
+const sumAll = (arr) => {
+  let arraySort = arr.sort((a, b) => a - b);
+  let sumArr = [];
+  for (let i = arraySort[0]; i <= arraySort[1]; i++) {
+    sumArr.push(i);
+  }
+
+  let arrSum = sumArr.reduce((acc, curr) => acc + curr);
+  return arrSum;
+};
+
+console.log(sumAll([1, 4]));
+console.log(sumAll([10, 5]));
