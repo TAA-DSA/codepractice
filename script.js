@@ -167,3 +167,56 @@ console.log(destroyer([3, 5, 1, 2, 2], 2, 3, 5));
 //4.
 
 console.log("Wherefore art thou");
+
+//Make a function that looks through an array of objects (first argument) and
+//returns an array of all objects that have matching name and value pairs (second argument).
+//Each name and value pair of the source object has to be present in the object from the collection
+//if it is to be included in the returned array.
+//Key Value pair  //Do exercises
+
+const whatIsInAName = (collection, source) => {
+  const arr = [];
+  // Only change code below this line
+  for (let i = 0; i < collection.length; i++) {
+    let found = true;
+    for (const sourceProp in source) {
+      if (collection[i][sourceProp] !== source[sourceProp]) {
+        found = false;
+        break;
+      }
+    }
+    if (found) arr.push(collection[i]);
+  }
+  // Only change code above this line
+  return arr;
+};
+
+console.log(
+  whatIsInAName(
+    [
+      { first: "Romeo", last: "Montague" },
+      { first: "Mercutio", last: null },
+      { first: "Tybalt", last: "Capulet" },
+    ],
+    { last: "Capulet" }
+  )
+);
+
+console.log("Spinal Case");
+
+const spinalCase = (str) => {
+  // let regex = /[!"#$%&'()*+,./:;<=>?@[\]^_`{|}~]/g;
+
+  // let removePunctuation = str.replace(regex, " ");
+  // console.log(removePunctuation);
+  //let strSplit = removePunctuation.split(" ").join("-").toLowerCase();
+  //console.log(strSplit);
+  return str
+    .split(/\s|_|(?=[A-Z])/)
+    .join("-")
+    .toLowerCase();
+};
+
+console.log(spinalCase("This Is Spinal Tap"));
+console.log(spinalCase("The_Andy_Griffith_Show"));
+console.log(spinalCase("AllThe-small Things"));
