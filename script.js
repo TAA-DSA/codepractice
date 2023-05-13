@@ -234,7 +234,7 @@ const translatePigLatin = (str) => {
     for (let i = 0; i < arr.length; i++) {
       if (vowel.includes(arr[i])) {
         let strSlice = arr.slice(i).join("");
-
+        //console.log(strSlice);
         let consonantCluster = arr.slice(0, i).join("");
 
         return strSlice + consonantCluster + "ay";
