@@ -221,6 +221,7 @@ console.log(spinalCase("This Is Spinal Tap"));
 console.log(spinalCase("The_Andy_Griffith_Show"));
 console.log(spinalCase("AllThe-small Things"));
 
+//5.
 console.log("**********");
 console.log("Pig Latin");
 
@@ -250,3 +251,30 @@ console.log(translatePigLatin("eight"));
 console.log(translatePigLatin("schwartz"));
 console.log(translatePigLatin("algorithm"));
 console.log(translatePigLatin("rhythm"));
+
+//6.
+console.log("******");
+
+console.log("Search And Replace");
+
+const myReplace = (str, before, after) => {
+  let strSplit = str.split(" ");
+
+  let searchWord = strSplit.find((words) => words.includes(before));
+
+  if (searchWord[0] === searchWord[0].toUpperCase()) {
+    let firstChar = after[0].toUpperCase() + after.slice(1, after.length);
+
+    return str.replace(before, firstChar);
+  }
+  return str.replace(before, after.toLowerCase());
+};
+
+console.log(
+  myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped")
+);
+console.log(myReplace("Let us go to the store", "store", "mall"));
+console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
+console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
+console.log(myReplace("His name is Tom", "Tom", "john"));
+console.log(myReplace("I think we should look up there", "up", "Down"));
