@@ -220,3 +220,45 @@ const spinalCase = (str) => {
 console.log(spinalCase("This Is Spinal Tap"));
 console.log(spinalCase("The_Andy_Griffith_Show"));
 console.log(spinalCase("AllThe-small Things"));
+
+console.log("**********");
+console.log("Pig Latin");
+
+const translatePigLatin = (str) => {
+  let vowel = ["a", "e", "i", "o", "u"];
+  let arr = str.split("");
+
+  if (vowel.includes(arr[0])) {
+    return arr.join("") + "way";
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      if (vowel.includes(arr[i])) {
+        let strSlice = arr.slice(i).join("");
+
+        let consonantCluster = arr.slice(0, i).join("");
+
+        return strSlice + consonantCluster + "ay";
+      }
+    }
+    return arr.join("") + "ay";
+  }
+
+  // for (let i = 0; i <= str.length; i++) {
+  //   if (str[i] === vowel[i] || str[i] === vowel[i + 1]) {
+  //     str = str + "way";
+  //     return str;
+  //   } else {
+  //     let strSlice = str.slice(0, str.includes(vowel[i]));
+  //     return strSlice;
+  //   }
+  // }
+
+  //return str;
+};
+
+console.log(translatePigLatin("california"));
+console.log(translatePigLatin("consonant"));
+console.log(translatePigLatin("eight"));
+console.log(translatePigLatin("schwartz"));
+console.log(translatePigLatin("algorithm"));
+console.log(translatePigLatin("rhythm"));
