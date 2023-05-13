@@ -242,18 +242,6 @@ const translatePigLatin = (str) => {
     }
     return arr.join("") + "ay";
   }
-
-  // for (let i = 0; i <= str.length; i++) {
-  //   if (str[i] === vowel[i] || str[i] === vowel[i + 1]) {
-  //     str = str + "way";
-  //     return str;
-  //   } else {
-  //     let strSlice = str.slice(0, str.includes(vowel[i]));
-  //     return strSlice;
-  //   }
-  // }
-
-  //return str;
 };
 
 console.log(translatePigLatin("california"));
