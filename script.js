@@ -285,7 +285,7 @@ console.log("DNA Pairing");
 
 const pairElement = (str) => {
   let pairElement = [];
-  for (let i = 0; i <= str.length + 1; i++) {
+  for (let i = 0; i <= str.length; i++) {
     if (str[i] === "A") {
       pairElement.push(["A", "T"]);
     } else if (str[i] === "T") {
@@ -296,7 +296,7 @@ const pairElement = (str) => {
       pairElement.push(["C", "G"]);
     }
   }
-  console.log(pairElement);
+
   return pairElement;
 };
 
@@ -304,3 +304,27 @@ console.log(pairElement("GCG"));
 console.log(pairElement("ATCGA"));
 console.log(pairElement("TTGAG"));
 console.log(pairElement("CTCTA"));
+
+//8.
+console.log("*******");
+console.log("Missing Letters");
+
+const fearNotLetter = (str) => {
+  console.log(str.charCodeAt(1));
+
+  for (let i = 0; i <= str.length; i++) {
+    const currentCharCode = str.charCodeAt(i);
+    const previousCharCode = str.charCodeAt(i - 1);
+
+    if (currentCharCode - previousCharCode > 1) {
+      return String.fromCharCode(previousCharCode + 1);
+    }
+  }
+
+  return undefined;
+};
+
+console.log(fearNotLetter("abce")); // d
+console.log(fearNotLetter("abcdefghjklmno")); //i
+console.log(fearNotLetter("stvwx")); // u
+console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz")); //undefined
