@@ -350,16 +350,14 @@ console.log("*******");
 console.log("Convert HTML Entities");
 
 const convertHTML = (str) => {
-  console.log(strArr);
   let arrObj = {
     "&": "&amp;",
     "<": "&lt;",
     ">": "&gt;",
     '"': "&quot;",
-    "'": "&apos",
+    "'": "&apos;",
   };
 
-  //console.log(newStr);
   return str.replace(/([&<>\"'])/g, (match) => arrObj[match]);
 };
 
@@ -370,3 +368,57 @@ console.log(convertHTML("abc"));
 console.log(convertHTML("<>"));
 console.log(convertHTML('Stuff in "quotation marks"'));
 console.log(convertHTML("Schindler's List"));
+
+//11.
+//first sequence of fibonacci are 0, 1
+console.log("*******");
+console.log("sum all odd Fibonacci number");
+
+// const sumFibs = (num) => {
+//   let arrNum = [0, 1];
+//   let total = 0;
+//   let numArr = [];
+
+//   for (let i = 0; i <= num; i++) {
+//     numArr.push(i);
+//   }
+//   //keep only the num that are fibonacci sequence in numArr
+// };
+
+// console.log(sumFibs(4));
+// console.log(sumFibs(10));
+// console.log(sumFibs(1));
+// console.log(sumFibs(1000));
+// console.log(sumFibs(4000000));
+// console.log(sumFibs(4));
+// console.log(sumFibs(75024));
+// console.log(sumFibs(75025));
+
+console.log("******");
+console.log("Sum All Prime Numbers");
+
+const sumPrimes = (num) => {
+  let arrNum = [];
+  //helper function
+  const isPrime = (num) => {
+    if (num < 2) {
+      return false;
+    }
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    return true;
+  };
+
+  for (let i = 2; i < num; i++) {
+    if (isPrime(i)) {
+      arrNum.push(i);
+    }
+  }
+  console.log(arrNum);
+  return arrNum.reduce((a, b) => a + b, 0);
+};
+
+console.log(sumPrimes(10));
