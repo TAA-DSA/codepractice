@@ -328,3 +328,45 @@ console.log(fearNotLetter("abce")); // d
 console.log(fearNotLetter("abcdefghjklmno")); //i
 console.log(fearNotLetter("stvwx")); // u
 console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz")); //undefined
+
+//9.
+console.log("****");
+console.log("Sorted Union");
+
+//Notes: Flat method create new aray with all sub-array elements concatenated into recursively upto the specified
+// depth (optional)
+//[...new Set(arr.flat())]
+
+const uniteUnique = (...arr) => {
+  console.log(...arr);
+  let uniqueArr = [...new Set(arr.flat())];
+  return uniqueArr;
+};
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+
+//10.
+console.log("*******");
+console.log("Convert HTML Entities");
+
+const convertHTML = (str) => {
+  console.log(strArr);
+  let arrObj = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos",
+  };
+
+  //console.log(newStr);
+  return str.replace(/([&<>\"'])/g, (match) => arrObj[match]);
+};
+
+console.log(convertHTML("Dolce & Gabbana")); // output Dolce &amp; Gabbana
+console.log(convertHTML("Hamburgers < Pizza < Tacos"));
+console.log(convertHTML("Sixty > twelve"));
+console.log(convertHTML("abc"));
+console.log(convertHTML("<>"));
+console.log(convertHTML('Stuff in "quotation marks"'));
+console.log(convertHTML("Schindler's List"));
