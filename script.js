@@ -278,3 +278,29 @@ console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
 console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
 console.log(myReplace("His name is Tom", "Tom", "john"));
 console.log(myReplace("I think we should look up there", "up", "Down"));
+
+//7.
+console.log("********");
+console.log("DNA Pairing");
+
+const pairElement = (str) => {
+  let pairElement = [];
+  for (let i = 0; i <= str.length + 1; i++) {
+    if (str[i] === "A") {
+      pairElement.push(["A", "T"]);
+    } else if (str[i] === "T") {
+      pairElement.push(["T", "A"]);
+    } else if (str[i] === "G") {
+      pairElement.push(["G", "C"]);
+    } else if (str[i] === "C") {
+      pairElement.push(["C", "G"]);
+    }
+  }
+  console.log(pairElement);
+  return pairElement;
+};
+
+console.log(pairElement("GCG"));
+console.log(pairElement("ATCGA"));
+console.log(pairElement("TTGAG"));
+console.log(pairElement("CTCTA"));
