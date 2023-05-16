@@ -412,13 +412,79 @@ const sumPrimes = (num) => {
     return true;
   };
 
-  for (let i = 2; i < num; i++) {
+  for (let i = 2; i <= num; i++) {
     if (isPrime(i)) {
       arrNum.push(i);
     }
   }
-  console.log(arrNum);
+
   return arrNum.reduce((a, b) => a + b, 0);
 };
 
 console.log(sumPrimes(10));
+console.log(sumPrimes(977));
+
+console.log("******");
+console.log("Smallest Common Multiple");
+
+const smallestCommons = (arr) => {
+  // Create a range of numbers between the two given parameters
+  const range = [];
+  for (let i = Math.min(...arr); i <= Math.max(...arr); i++) {
+    range.push(i);
+  }
+
+  // Function to calculate the greatest common divisor (GCD) of two numbers
+  const gcd = (a, b) => {
+    if (b === 0) {
+      return a;
+    }
+    return gcd(b, a % b);
+  };
+
+  // Function to calculate the least common multiple (LCM) of two numbers
+  const lcm = (a, b) => (a * b) / gcd(a, b);
+
+  // Calculate the LCM for the range of numbers
+  let result = range[0];
+  for (let i = 1; i < range.length; i++) {
+    result = lcm(result, range[i]);
+  }
+
+  return result;
+};
+
+console.log(smallestCommons([1, 5]));
+console.log(smallestCommons([5, 1]));
+console.log(smallestCommons([2, 10]));
+console.log(smallestCommons([1, 13]));
+console.log(smallestCommons([23, 18]));
+
+console.log("***DropElement***");
+
+function dropElements(arr, func) {
+  // return arr.filter((number) => func(number));
+  const index = arr.findIndex(func);
+  return index !== -1 ? arr.slice(index) : [];
+}
+
+console.log(
+  dropElements([1, 2, 3], function (n) {
+    return n < 3;
+  })
+);
+console.log(
+  dropElements([0, 1, 0, 1], function (n) {
+    return n === 1;
+  })
+); //output [1,0,1]
+console.log(
+  dropElements([1, 2, 3, 9, 2], function (n) {
+    return n > 2;
+  })
+); //output [3,9,2]
+console.log(
+  dropElements([1, 2, 3, 4], function (n) {
+    return n >= 3;
+  })
+);
