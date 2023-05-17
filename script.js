@@ -488,3 +488,68 @@ console.log(
     return n >= 3;
   })
 );
+
+//13.
+
+console.log("****StreamRoller****");
+
+const steamrollArray = (arr) => {
+  //console.log(arr.length);
+  let arrBol = arr.map((array) => Array.isArray(array));
+
+  const flattenedArray = [];
+  // Loop over array contents
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      // Recursively flatten entries that are arrays
+      //  and push into the flattenedArray
+      flattenedArray.push(...steamrollArray(arr[i]));
+    } else {
+      // Copy contents that are not arrays
+      flattenedArray.push(arr[i]);
+    }
+  }
+  return flattenedArray;
+};
+
+console.log(steamrollArray([1, [2], [3, [[4]]]]));
+//console.log(steamrollArray([[["a"]], [["b"]]]));
+
+console.log("***Everything Be True***");
+
+const truthCheck = (collection, pre) => {
+  return collection.every((obj) => obj[pre]);
+  //return Object.keys(collection);
+};
+
+console.log(
+  truthCheck(
+    [
+      { name: "Quincy", role: "Founder", isBot: false },
+      { name: "Naomi", role: "", isBot: false },
+      { name: "Camperbot", role: "Bot", isBot: true },
+    ],
+    "isBot"
+  )
+);
+console.log(
+  truthCheck(
+    [
+      { name: "Quincy", role: "Founder", isBot: false },
+      { name: "Naomi", role: "", isBot: false },
+      { name: "Camperbot", role: "Bot", isBot: true },
+    ],
+    "name"
+  )
+);
+
+console.log(
+  truthCheck(
+    [
+      { name: "Quincy", role: "Founder", isBot: false },
+      { name: "Naomi", role: "", isBot: false },
+      { name: "Camperbot", role: "Bot", isBot: true },
+    ],
+    "role"
+  )
+);
