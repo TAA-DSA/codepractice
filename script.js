@@ -1,3 +1,5 @@
+const { isArgumentsObject } = require("util/types");
+
 //1.Problem
 console.log("Falsy Bouncer !!");
 
@@ -553,3 +555,37 @@ console.log(
     "role"
   )
 );
+
+//14.
+console.log("****Argument Optional");
+
+// function addTogether() {
+//   const [first, second] = arguments;
+//   console.log(first);
+// }
+
+const addTogether = (...args) => {
+  const [first, second] = args;
+
+  if (typeof first === "number" && typeof second === "number") {
+    return first + second;
+  } else if (args.length === 1 && typeof first === "number") {
+    return function (second) {
+      if (typeof second === "number") {
+        return first + second;
+      } else {
+        return undefined;
+      }
+    };
+  } else {
+    return undefined;
+  }
+};
+
+console.log(addTogether(2, 3)); // 5
+console.log(addTogether(23, 30)); //53
+console.log(addTogether(5)(7)); //12
+console.log(addTogether(2, "3"));
+console.log(addTogether("2", 3));
+console.log(addTogether(5, undefined));
+console.log(addTogether("https://www.youtube.com/watch?v=dQw4w9WgXcQ")); //undefined
