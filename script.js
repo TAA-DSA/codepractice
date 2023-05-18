@@ -589,3 +589,22 @@ console.log(addTogether(2, "3"));
 console.log(addTogether("2", 3));
 console.log(addTogether(5, undefined));
 console.log(addTogether("https://www.youtube.com/watch?v=dQw4w9WgXcQ")); //undefined
+
+console.log("****PalinDrome****");
+
+const palindrome = (str) => {
+  let regex = /[\W_]/g;
+
+  let cleanStr = str.toLowerCase().replace(regex, "");
+
+  let reverseStr = cleanStr.split("").reverse().join("");
+
+  return cleanStr === reverseStr;
+};
+
+console.log(palindrome("eye"));
+console.log(palindrome("_eye"));
+console.log(palindrome("race car"));
+console.log(palindrome("not a palindrome"));
+console.log(palindrome("A man, a plan, a canal. Panama"));
+console.log(palindrome("0_0 (: /- :) 0-0"));
