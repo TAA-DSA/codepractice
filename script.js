@@ -686,9 +686,11 @@ const rot13 = (str) => {
   for (let i = 0; i < str.length; i++) {
     const index = alphabetArr.indexOf(strArr[i]);
     if (index === -1) {
+      //this keeps the non alphabets in the array
       newStr.push(strArr[i]);
     } else {
       const newIndex = (index + 13) % alphabetArr.length;
+
       newStr.push(alphabetArr[newIndex]);
     }
   }
@@ -700,3 +702,14 @@ console.log(rot13("SERR PBQR PNZC"));
 console.log(rot13("SERR CVMMN!"));
 console.log(rot13("SERR YBIR?"));
 console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."));
+
+console.log("****Telephone Number Validator*****");
+
+const telephoneCheck = (str) => {
+  let regex = /^(1\s?)?(\(\d{3}\)|\d{3})[-\s]?\d{3}[-\s]?\d{4}$/;
+  return regex.test(str);
+};
+
+console.log(telephoneCheck("555-555-5555")); //output true
+console.log(telephoneCheck("8oo-six427676")); // false
+console.log(telephoneCheck("1 (555) 555-5555")); // true
