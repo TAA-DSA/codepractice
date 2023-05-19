@@ -679,18 +679,24 @@ const rot13 = (str) => {
     "Y",
     "Z",
   ];
-  console.log(alphabetArr[14]);
-  let strArr = str.split(" ");
-  console.log(strArr);
-  //loop through the index of str
-  for (let i = 0; i <= alphabetArr.length; i++) {
-    if (alphabetArr[i] === strArr[i]) {
-      return i;
+
+  let strArr = str.split("");
+
+  let newStr = [];
+  for (let i = 0; i < str.length; i++) {
+    const index = alphabetArr.indexOf(strArr[i]);
+    if (index === -1) {
+      newStr.push(strArr[i]);
+    } else {
+      const newIndex = (index + 13) % alphabetArr.length;
+      newStr.push(alphabetArr[newIndex]);
     }
   }
-  //find the char in alaarr
-  //then move the charStr to 13 place and return the char at the position
-  return str;
+
+  return newStr.join("");
 };
 
 console.log(rot13("SERR PBQR PNZC"));
+console.log(rot13("SERR CVMMN!"));
+console.log(rot13("SERR YBIR?"));
+console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."));
