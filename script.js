@@ -593,7 +593,7 @@ console.log(addTogether("https://www.youtube.com/watch?v=dQw4w9WgXcQ")); //undef
 console.log("****PalinDrome****");
 
 const palindrome = (str) => {
-  let regex = /[\W_]/g;
+  let regex = /[\W_]/g; // remove all punctuation.
 
   let cleanStr = str.toLowerCase().replace(regex, "");
 
@@ -608,3 +608,89 @@ console.log(palindrome("race car"));
 console.log(palindrome("not a palindrome"));
 console.log(palindrome("A man, a plan, a canal. Panama"));
 console.log(palindrome("0_0 (: /- :) 0-0"));
+
+console.log("****Roman Numeral Converter****");
+
+const convertToRoman = (num) => {
+  let romanNumerals = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1,
+  };
+
+  let romanNumeralStr = "";
+
+  for (key in romanNumerals) {
+    romanNumeralStr += key.repeat(Math.floor(num / romanNumerals[key]));
+    num %= romanNumerals[key];
+  }
+  //console.log("hello");
+  return romanNumeralStr;
+};
+
+console.log(convertToRoman(1));
+console.log(convertToRoman(2));
+console.log(convertToRoman(3));
+console.log(convertToRoman(4));
+console.log(convertToRoman(12));
+console.log(convertToRoman(44));
+console.log(convertToRoman(45));
+console.log(convertToRoman(68));
+console.log(convertToRoman(99));
+
+console.log("***Cesar Cipher****");
+
+const rot13 = (str) => {
+  let alphabetArr = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "N",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+  ];
+  console.log(alphabetArr[14]);
+  let strArr = str.split(" ");
+  console.log(strArr);
+  //loop through the index of str
+  for (let i = 0; i <= alphabetArr.length; i++) {
+    if (alphabetArr[i] === strArr[i]) {
+      return i;
+    }
+  }
+  //find the char in alaarr
+  //then move the charStr to 13 place and return the char at the position
+  return str;
+};
+
+console.log(rot13("SERR PBQR PNZC"));
