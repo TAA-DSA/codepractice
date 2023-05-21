@@ -31,3 +31,34 @@ const isAnagram = (s, t) => {
 
 console.log(isAnagram("anagram", "nagaram")); //true
 console.log(isAnagram("rat", "car")); //false
+
+console.log("***Two Sum***");
+//3.
+//Given an array of integers nums and an integer target, return indices of the two numbers such that
+//they add up to target.
+//You may assume that each input would have exactly one solution, and you may not use the same element twice.
+//You can return the answer in any order.
+
+const twoSums = (nums, target) => {
+  const numMap = new Map();
+  let indexTarget = [];
+
+  nums.forEach((num, index) => {
+    //Difference between the number
+    const complement = target - num;
+
+    if (numMap.has(complement)) {
+      //Found a pair at adds up to the target
+      indexTarget = [numMap.get(complement), index];
+    }
+    //add the current number to the map
+    numMap.set(num, index);
+  });
+  //return the target index
+  return indexTarget;
+};
+
+console.log(twoSums((nums = [2, 7, 11, 15]), (target = 9)));
+console.log(twoSums((nums = [3, 2, 3]), (target = 6)));
+console.log(twoSums((nums = [3, 2, 4]), (target = 6)));
+console.log(twoSums((nums = [3, 3]), (target = 6)));
